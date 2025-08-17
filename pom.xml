@@ -10,8 +10,8 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
-        <java.parent.version>1.0.0-SNAPHOT</java.parent.version>
-        <java.parent.boot.version>1.0.0-SNAPHOT</java.parent.boot.version>
+        <java.parent.version>1.0.0-SNAPSHOT</java.parent.version>
+        <java.parent.boot.version>1.0.0-SNAPSHOT</java.parent.boot.version>
     </properties>
 
     <dependencyManagement>
@@ -23,7 +23,7 @@
             </dependency>
             <dependency>
                 <groupId>com.portfolio</groupId>
-                <artifactId>java-parent</artifactId>
+                <artifactId>java-parent-boot</artifactId>
                 <version>${java.parent.boot.version}</version>
             </dependency>
         </dependencies>
