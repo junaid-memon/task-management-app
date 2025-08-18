@@ -5,27 +5,14 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.portfolio</groupId>
+    <parent>
+        <groupId>com.portfolio</groupId>
+        <artifactId>java-parent-boot</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
     <artifactId>task-management-backend</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <properties>
-        <java.parent.version>1.0.0-SNAPSHOT</java.parent.version>
-        <java.parent.boot.version>1.0.0-SNAPSHOT</java.parent.boot.version>
-    </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.portfolio</groupId>
-                <artifactId>java-parent</artifactId>
-                <version>${java.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.portfolio</groupId>
-                <artifactId>java-parent-boot</artifactId>
-                <version>${java.parent.boot.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>
