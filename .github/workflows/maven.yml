@@ -20,6 +20,15 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+      
+      # Step 1: Build and install java-parent
+      - name: Build java-parent
+        run: mvn -B clean install --file java-parent/pom.xml
 
+      # Step 2: Build and install java-parent-boot
+      - name: Build java-parent-boot
+        run: mvn -B clean install --file java-parent-boot/pom.xml
+      
+      # Step 3: Build backend (which uses parent)
       - name: Build with Maven
         run: mvn -B verify --file pom.xml
