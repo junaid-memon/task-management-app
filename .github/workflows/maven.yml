@@ -17,22 +17,13 @@ jobs:
       # Check out the parent repo into a folder
       - uses: actions/checkout@v4
         with:
-          repository: junaid-memon/java-parent
-          path: java-parent
-      
-      # Check out the parent repo into a folder
-      - uses: actions/checkout@v4
-        with:
           repository: junaid-memon/java-parent-boot
           path: java-parent-boot
       
-      # Install the parent POM locally
-      - name: Install Java parent locally
-        run: mvn -f java-parent/pom.xml clean install -DskipTests
       
       - name: Install Java parent boot locally
         run: mvn -f java-parent-boot/pom.xml clean install -DskipTests
       
        # Build the child project
       - name: Build child
-        run: mvn clean verify
+        run: mvn clean install
