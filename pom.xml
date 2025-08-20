@@ -10,9 +10,22 @@
         <artifactId>java-parent-boot</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
+         
+    <repositories>
+         <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/junaid-memon/java-parent-boot</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/junaid-memon/java-parent-boot</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <artifactId>task-management-backend</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-
 
 </project>
