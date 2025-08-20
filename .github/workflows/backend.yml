@@ -14,6 +14,12 @@ jobs:
       # Check out the child repo
       - uses: actions/checkout@v4
 
+      # Setup Java
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
       - name: Build and verify
         run: mvn --batch-mode clean verify
         env:
