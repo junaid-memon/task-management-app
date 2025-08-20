@@ -3,32 +3,36 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
+      # Check out the child repo
+      - uses: actions/checkout@v4
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      # Check out the parent repo into a folder
+      - uses: actions/checkout@v4
         with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: maven
+          repository: junaid-memon/java-parent
+          path: java-parent
       
-      # Step 1: Build and install java-parent
-      - name: Build java-parent
-        run: mvn -B clean install --file java-parent/pom.xml
-
-      # Step 2: Build and install java-parent-boot
-      - name: Build java-parent-boot
-        run: mvn -B clean install --file java-parent-boot/pom.xml
+      # Check out the parent repo into a folder
+      - uses: actions/checkout@v4
+        with:
+          repository: junaid-memon/java-parent-boot
+          path: java-parent-boot
       
-      # Step 3: Build backend (which uses parent)
-      - name: Build with Maven
-        run: mvn -B verify --file pom.xml
+      # Install the parent POM locally
+      - name: Install Java parent locally
+        run: mvn -f java-parent/pom.xml clean install -DskipTests
+      
+      - name: Install Java parent boot locally
+        run: mvn -f java-parent-boot/pom.xml clean install -DskipTests
+      
+       # Build the child project
+      - name: Build child
+        run: mvn clean verify
