@@ -25,7 +25,8 @@
             <url>https://maven.pkg.github.com/junaid-memon/java-parent-boot</url>
         </pluginRepository>
     </pluginRepositories>
-
+    
+    <groupId>com.portfolio.app</groupId>
     <artifactId>task-management-backend</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
